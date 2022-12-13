@@ -1,9 +1,9 @@
 class InstitutionsController < ApplicationController
   def index
-    #/institutions/all
+    # /institutions/all
     # Retrieve all institutions
     #
-    # Use the /institutions/all endpoint to retrieve all institutions. The returned array contains information about
+    # Use the /institutions/get endpoint to retrieve all institutions. The returned array contains information about
     # each institution, including the institution ID, name, and products.
     #
     # Parameters
@@ -17,7 +17,7 @@ class InstitutionsController < ApplicationController
     params[:offset] ||= 0
     params[:country_codes] ||= ["US"]
 
-    response = PLAID_CLIENT.institutions_all(
+    response = PLAID_CLIENT.institutions_get(
       count: params[:count],
       offset: params[:offset],
       country_codes: params[:country_codes]
